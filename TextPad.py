@@ -14,7 +14,7 @@ main_application.title('Text Pad')
 main_application.wm_iconbitmap('icon.ico')
 
 
-############################################## main menu ###################################################
+############################################  main menu  ################################################
 
 main_menu = tk.Menu()
 #file icons
@@ -64,7 +64,7 @@ color_dict = {
     'Light Plus' : ('#474747', '#e0e0e0'),
     'Dark' : ('#c4c4c4', '#2d2d2d'),
     'Red' : ('#2d2d2d', '#ffe8e8'),'Monokai' : ('#d3b774', '#474747'),
-    'Night Blue' :('#ededed', '#6bdc2')
+    'Night Blue' :('#ededed', '#6b9dc2')
 }
 
 ######## emoji
@@ -109,7 +109,7 @@ main_menu.add_cascade(label='Emoji', menu=emoji)
 main_menu.add_cascade(label='Tools', menu=tools)
 
 # -------------------------------------&&&&&&&& End main menu &&&&&&&&&&& ----------------------------------
-############################################## toolbar  ###################################################
+##########################################  toolbar  ################################################
 
 
 tool_bar = ttk.Label(main_application)
@@ -184,9 +184,9 @@ align_right_icon = tk.PhotoImage(file='icons2/align_right.png')
 align_right_btn = ttk.Button(tool_bar, image=align_right_icon)
 align_right_btn.grid(row=0, column=11, padx=5)
 
-# -------------------------------------&&&&&&&& End toolbar  &&&&&&&&&&& ----------------------------------
+# -------------------------------------&&&&&&&& End toolbar  &&&&&&&&----------------------------------
 
-############################################## text editor ###################################################
+##########################################text editor ##############################################
 
 text_editor = tk.Text(main_application)                                              
 text_editor.config(wrap='word', relief=tk.FLAT)
@@ -386,7 +386,7 @@ text_editor.configure(font=('Arial', 12))
 # -------------------------------------&&&&&&&& End text editor &&&&&&&&&&& ----------------------------------
 
 
-##############################################  status bar ###################################################
+##############################################statusbar###################################################
 
 status_bar = ttk.Label(main_application, text = 'Status Bar')
 status_bar.pack(side=tk.BOTTOM)
@@ -404,10 +404,10 @@ def changed(event=None):
 text_editor.bind('<<Modified>>', changed)
 
 
-# -------------------------------------&&&&&&&& End  status bar &&&&&&&&&&& ----------------------------------
+# -------------------------------------&&&&&Endstatusbar&&&&& --------------------------------------------
 
 
-############################################## main menu functinality ###################################################
+############################### main menu functinality #####################################
 
 ## variable 
 url = ''
@@ -594,7 +594,6 @@ def hide_toolbar():
         status_bar.pack(side=tk.BOTTOM)
         show_toolbar = True 
 
-
 def hide_statusbar():
     global show_statusbar
     if show_statusbar:
@@ -614,7 +613,7 @@ def change_theme():
     chosen_theme = theme_choice.get()
     color_tuple = color_dict.get(chosen_theme)
     fg_color, bg_color = color_tuple[0], color_tuple[1]
-    text_editor.config(background=bg_color, fg=fg_color) 
+    text_editor.config(bg=bg_color, fg=fg_color) 
 count = 0
 # to iterate items of color_icons variable                                                                  
 for i in color_dict:
@@ -703,5 +702,3 @@ main_application.bind("<Control-q>", exit_func)
 main_application.bind("<Control-f>", find_func)
 
 main_application.mainloop()
-  
-
